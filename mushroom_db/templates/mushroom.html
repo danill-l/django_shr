@@ -1,0 +1,16 @@
+{% extends "main\index.html" %}
+{% load type_tags %}
+{% load static %}
+
+{% block localstyle %}
+     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block description %}
+<article class="intro"> 
+    <div class="mushroom-card-img">
+        <img src="{{ mushroom.image.url }}" alt="{{ mushroom.name }}" class="mushroom-card-picture"> 
+    </div>
+    <p>{{mushroom.description}}</p>
+</article>
+{% endblock %}

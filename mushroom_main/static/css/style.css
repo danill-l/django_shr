@@ -1,0 +1,527 @@
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    margin: 0;
+    color: #414141;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    background: url("/static/img/mushroom_bg.png");
+    background-size: contain;
+    /* background: url("/static/img/mushroom_bg.jpg") 50% 0 no-repeat; */
+    /* 50% 0; */
+    line-height: 1;
+}
+.outer-page {
+    padding-top: 27px;
+    min-height: 100%;
+    margin-bottom: -92px;
+}
+
+/* Шапка сайта */
+
+.header {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1150px;
+}
+.mushroom-logo {
+    position: absolute;
+    top: 8px;
+    left: 22px;
+    width: 201px;
+    height: 185px;
+    background: url("/static/img/myshroom_logo_3.png") no-repeat;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.header-container {
+    margin: 0px 16px;
+    padding: 25px 0;
+    background-color: #FFD35A;
+    background-image: url("/static/img/mushrooms_header_background.png");
+    border-radius: 11px 11px 0 0;
+}
+
+.header-top {
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+.top-header {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 25px 0;
+    padding: 0px;
+    list-style-type: none;
+}
+.top-header li {
+    position: relative;
+    margin-left: 30px;
+}
+.top-header li a {
+    color: black;
+    padding: 15px 30px;
+    font-size: 12px;
+    /* line-height: 1; */
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #FFF8DB;
+    border: 1px solid grey;
+    border-radius: 20px;
+}
+.top-header li a:hover{
+    background-color: #BB9AB1;
+    cursor: pointer;
+}
+.header-bottom {
+    display: flex;
+    align-items: center;
+    padding-left: 241px;
+}
+.searchform {
+    position: relative;
+    width: 361px;
+}
+.searchinput {
+    padding-left: 11px;
+    padding-right: 37px;
+    width: 100%;
+    height: 40px;
+    color: black;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: normal;
+    appearance: none;
+    outline: none;
+}
+.searchinput::placeholder{
+    color: black;
+}
+.submitter {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 25px;
+    height: 25px;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    background-color: white;
+}
+.submitter::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("/static/img/sprites.png") 0 -251px no-repeat;
+    width: 25px;
+    height: 25px;
+}
+.authorisation {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+}
+.sign-in, .register {
+    position: relative;
+    margin-right: 11px;
+    padding: 11px 11px 11px 28px;
+    color: #2a2a2a;
+    background-color: #FFF8DB;
+    border: 1px solid grey;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+.sign-in:hover {
+    background-color: #BB9AB1;
+    color: black;
+}
+.register:hover {
+    background-color: #BB9AB1;
+    color: black;
+}
+.sign-in::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    background: url("/static/img/sprites.png") 0 -372px no-repeat;
+    width: 14px;
+    height: 8px;
+}
+.register::before{
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    background: url("/static/img/sprites.png") 0 -380px;
+    width: 13px;
+    height: 10px;
+}
+.main-menu {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    max-width: 1150px;
+    background-color: #693a26;
+    border-radius: 11px;
+}
+.main-menu-mushroom-info {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    padding-left: 257px;
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+    list-style-type: none;
+}
+
+.main-menu-link a {
+    display: block;
+    padding: 21px 15px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: transparent;
+}
+
+.main-menu-link:hover {
+    color: white;
+    background-color: #3e2013;
+}
+.main-submenu {
+    position: absolute;
+    display: none;
+    width: 153px;
+    padding: 0px 20px 5px 10px;
+    background-color:  #693a26; 
+    border-radius: 0 0 11px 11px;
+    list-style-type: none;
+    z-index: 1;
+}
+.main-submenu li {
+    padding-bottom: 10px;
+}
+.main-submenu a {
+    display: block;
+    padding: 5px 5px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: transparent;
+}
+.main-menu-link:hover .main-submenu {
+    display: block;
+    background-color: #3e2013;
+}
+/* цвет сабменю #3e2013 #693a26 */
+
+/* Основной контент сайта */
+.content {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 16px;
+    max-width: 1150px;
+}
+.main-info {
+    flex: 0 1 100%;
+    /* padding-bottom: 0; */
+    background-color: #fff;
+    border-radius: 0 0 0 11px;
+    max-width: 715px;
+}
+.intro {
+    margin: 1.5em 2em 2em;
+}
+.intro-title {
+    margin: 0;
+    color: #444343;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+em {
+    font-style: italic;
+    display: block;
+    margin-top: 3px;
+}
+.intro p {
+    line-height: 1.3;
+    overflow-wrap: break-word;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.statistics {
+    margin: 0 2em 2em;
+}
+.statistics_title {
+    color: #434343;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+}
+.stats-list {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0 1em;
+    padding: 0;
+    list-style-type: none;
+}
+.stats-item {
+    width: 150px;
+    text-align: center;
+    overflow-wrap: normal;
+}
+.stats-png-one {
+    display: block;
+    margin: 0 auto 1em;
+    background: url("/static/img/sprites.png") 0 -426px;
+    width: 34px;
+    height: 34px;
+}
+.stats-png-two {
+    display: block;
+    margin: 0 auto 1em;
+    background: url("/static/img/sprites.png") 0 -390px;
+    width: 43px;
+    height: 36px;
+}
+.stats-png-three {
+    display: block;
+    margin: 0 auto 1em;
+    background: url("/static/img/sprites.png") 0 -460px;
+    width: 43px;
+    height: 38px;
+}
+.stats-bottom-desc {
+    line-height: 1.1;
+    text-align: justify;
+}
+p {
+    display: block;
+    text-align: justify;
+    line-height: 1.3;
+}
+.h-article {
+    margin: 0 2em 2em;
+}
+.footer {
+    background-color: #693a26;
+    height: 92px;
+    display: block;
+    margin: 0 auto;
+    max-width: 1150px;
+    border-radius: 11px;
+}
+.aside {
+    position: flex;
+    width: 404px;
+    background-color: #F8EDE3;
+}
+.faq-header {
+    margin-left: 25px;
+    color: #444343;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1.2;
+    padding-bottom: 0.2em;
+}
+/* футер */
+.footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em 3em;
+    max-width: 1150px;
+    height: 92px;
+}
+.footer-text {
+    color: #dbdbdb;
+    font-size: 12px;
+    /* font-size:; */
+    line-height: 1.5;
+}
+.footer-text p {
+    margin: 0;
+}
+
+/* карусель */
+/* .carousel {
+    border: 1px solid black;
+    width: 350px;
+    margin: 0 auto;
+}
+.carousel-item {
+    border: 1px solid black;
+    background-image: url("/static/img/myshroom_logo_.png");
+    height: 200px;
+}
+.carousel-control-prev, .carousel-control-next {
+    color: black;
+} */
+
+.page-title {
+    text-align: center;
+  }
+  
+.slider-container {
+position: relative;
+width: 380px;
+height: 400px;
+margin: 0 auto;
+padding-top: 10px;
+overflow: hidden;
+}
+  
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+  
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+.prev-button,
+.next-button {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: #693a26;
+    border-radius: 25px;
+    border: none;
+    font-size: 24px;
+    color: white;
+}
+  
+.prev-button {
+    left: 5px;
+}
+  
+.next-button {
+    right: 5px;
+}
+
+/* верстка раздела list */
+
+.image {
+    display: inline-block;
+    position: relative;
+    flex: 0 0 auto;
+    height: 50%;
+    height: intrinsic;
+    margin-right: 1em;
+}
+
+.mushroom-card {
+    display: flex;
+    margin-bottom: 1.25em;
+    padding-bottom: 1.25em;
+    border-bottom: 1px solid #dbdac0;
+}
+
+.image img {
+    width: 250px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.mushroom-icons {
+    left: 0.2em;
+    top: 0.2em;
+    position: absolute;
+    opacity: 0.7;
+}
+.poisonous, .not-edible {
+    background-color: #ff5b4c;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+.poisonous::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 9px;
+    background: url("/static/img/sprites.png") 0 -789px;
+    width: 13px;
+    height: 16px;
+}
+.not-edible::before {
+    content: '';
+    position: absolute;
+    background: url("/static/img/sprites.png") 0 -773px;
+    top: 8px;
+    left: 3px;
+    width: 24px;
+    height: 16px;
+    background-repeat: no-repeat;
+}
+.mushroom-link {
+    color: #6c3b28;
+    text-decoration: none;
+}
+.mushroom-link:hover {
+    color: coral;
+}
+
+/* верстка раздела article */
+
+.article-card {
+    display: flex;
+    margin-bottom: 1.25em;
+    padding-bottom: 1.25em;
+    border-bottom: 1px solid #dbdac0;
+}
+.article-image {
+    display: inline-block;
+    position: relative;
+    flex: 0 0 auto;
+    height: 50%;
+    height: intrinsic;
+    margin-right: 1em;
+}
+
+.article-aside {
+    flex: 0 1 auto;
+}
+
+/* стиль внутри карточек с грибами */
+
+.mushroom-card-img {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+}

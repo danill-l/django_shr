@@ -1,0 +1,185 @@
+{% load static %}
+{% load type_tags %}
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>MyShroom – сайт о грибах</title>
+    {% block localstyle %}
+    <link rel="stylesheet" href="static/css/style.css">
+    {% endblock localstyle %}
+  </head>
+  <body>
+    <div class="outer-page">
+        <header class="header">
+            <div class="header-container">
+                <a href="{% url 'mushroom_main:index' %}" class="mushroom-logo" title="Здесь Вы узнаете всё о грибах!"></a>
+                <nav class="header-top">
+                    <ul class="top-header">
+                        <li>
+                            <a href="{% url 'mushroom_main:faq' %}"> FAQ </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'mushroom_main:rules' %}"> Правила </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'mushroom_main:about' %}"> О сайте </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-bottom">
+                    <form role="search" method="get" class="searchform" action="{% url "mushroom_db:search" %}">
+                        <input type="text" class="searchinput" name="q" value placeholder="Название гриба">
+                        <button class="submitter" type="submit"></button>
+                    </form>
+                    {% comment %} <div class="authorisation">
+                        <a href="" class="sign-in">
+                            Войти
+                        </a>
+                        <a href="" class="register">
+                            Регистрация
+                        </a>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+        </header>
+        <nav class="main-menu">
+            <ul class="main-menu-mushroom-info">
+               <li href="" class="main-menu-link">
+                    <a href="{% url 'mushroom_db:list' %}">Виды грибов</a>
+                     <ul class="main-submenu">
+                        {% tag_types as types %}
+                        {% for type in types %}
+                        <li>
+                            <a href="{% url 'mushroom_db:types' type.en_name %}">{{ type.name }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% tag_article_type as article_types %}
+                {% for article_type in article_types  %}
+                <li href="" class="main-menu-link">
+                    <a href="{% url 'mushroom_articles:article' article_type.url %}">{{ article_type.type }}</a>
+                </li>
+                {% endfor %}
+                {% comment %} {% url 'mushroom_articles:article' article_type.url %} {% endcomment %}
+                {% comment %} <li href="" class="main-menu-link">
+                    <a href="">Статьи о грибах</a>
+                </li>
+                <li href="" class="main-menu-link">
+                    <a href="">Грибная медицина</a>
+                </li> {% endcomment %}
+            </ul>
+        </nav>
+        <div class="content">
+            <section class="main-info">
+            {% block description %}
+                <article class="intro">
+                    <h1 class="intro-title">Твоя личная грибная энциклопедия!</h1>
+                    <em>Здесь собраны знания обо всех грибах на территории СНГ</em>
+                    <p>
+                        Добро пожаловать на сайт "<strong>MyShroom.ru</strong>"! Здесь можно найти
+                        полезную информацию про грибы и способы их применения в бытовой жизни человека.
+                    </p>
+                    <p>
+                        <strong> Грибы </strong> (лат. Fungi или Mycota) представляют собой особую форму жизни, и отдельное царство, внутри которого объединены
+                        эукариотические организмы, в которых проявляются признаки не только растений, но и животных.
+                    </p>
+                </article>
+                <div class="statistics">
+                    <p class="statistics_title">В нашей энциклопедии содержится:</p>
+                    <ul class="stats-list">
+                        <li class="stats-item">
+                            <span class="stats-png-one"></span>
+                            <span class="stats-desc">
+                                <strong> {{ counter }} грибов</strong>
+                                <br>
+                                с описанием и фотографиями
+                            </span>
+                        </li>
+                        <li class="stats-item">
+                            <span class="stats-png-two"></span>
+                            <span class="stats-desc">
+                                <strong>{{ meals }} рецептов</strong>
+                                <br>
+                                с грибами
+                            </span>
+                        </li>
+                        <li class="stats-item">
+                            <span class="stats-png-three"></span>
+                            <span class="stats-desc">
+                                <strong>{{ counter_for_articles }} статей</strong>
+                                <br>
+                                на грибную
+                                тематику.
+                            </span>
+                        </li>
+                    </ul>
+                    <p class="stats-bottom-desc">
+                        Наша энциклопедия ориентирована, прежде всего, на те виды грибов, 
+                        которые произрастают на территории СНГ и могут представлять пищевую ценность для человека, 
+                        а так-же те, среди них, употребление которых может быть опасно (ядовитые грибы).
+                    </p>
+                </div>
+                <article class="h-article">
+                    <h2>История происхождения грибов</h2>
+                    <p>
+                        На протяжении множества веков вопрос о времени появления грибов на нашей планете оставался открытым.
+                    </p>
+                    <p>
+                        Существовало множество версий, некоторые из которых пытались объяснить появление грибов после различных природных явлений. 
+                        Также бытовали две противоположные версии.
+                    </p>
+                    <p>
+                        Сторонники одной считали грибы детьми богов, другие же называли их детьми самого дьявола. Однако после длительных споров грибы были отнесены учеными к классу растений. 
+                        Со временем ученые пришли к выводу, что у грибов есть определенные отличия, свойственные и для животных. 
+                        Кроме того, грибы в своем составе не имеют хлорофилла – пигмента, которые характерен для всех без исключения растений.
+                    </p>
+                    <p>
+                        На современном этапе ученые пришли к выводу, что прародителями грибов были простейшие (одноклеточные), обитавшие когда-то в воде. 
+                        Восхваление грибов характерно для начала нашей эры. 
+                        В результате наличия в некоторых видах наркотических свойств, грибы, вызывающие галлюцинации, особо ценились древними индейцами. 
+                        Когда люди пришли к тому, что съеденный гриб приводит к расслаблению организма и экстазу, они начали массово употреблять грибы, не думая о том, 
+                        что их может настигнуть смерть от передозировки.
+                    </p>
+                    <p>
+                        Более-менее детальное изучение грибов началось в эпоху Возрождения. В то время были изданы первые книги, 
+                        в которых ученые пытались классифицировать разновидности грибов. В книгах даже применялись иллюстрации, показывающие точный внешний вид гриба.
+                    </p>
+                </article>
+            {% endblock description %}
+            </section>
+            <aside class="aside">
+                <div class="slider-container">
+                    <div class="slider">
+                        <img src="{% static "img/mush_slider_one.png" %}" alt="Статьи о грибах">
+                        <img src="{% static "img/mush_slider_two.png" %}" alt="Грибные рецепты">
+                        <img src="{% static "img/mush_slider_three.png" %}" alt="Грибная медицина">
+                    </div>
+                    <button class="prev-button" aria-label="Посмотреть предыдущий слайд">&lt;</button>
+                    <button class="next-button" aria-label="Посмотреть следующий слайд">&gt</button>
+                <script src="{% static "js/carousel.js" %}"></script>
+                </div>
+            </aside>
+        </div>
+        <footer class="footer">
+            <div class="footer-wrapper">
+                <div class="footer-text">
+                    <p>
+                        ООО сайт "MyShroom" является коллективно наполняемым справочником грибной тематики. 
+                    </p>
+                    <p>
+                        Сделан в студии Begemotus. 
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
