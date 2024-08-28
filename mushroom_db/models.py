@@ -41,8 +41,3 @@ class Mushrooms(models.Model):
 
     def display_id(self):
         return self.id
-
-class MushroomsDesc(models.Model):
-    image = models.ImageField(upload_to='images/', blank=True, null=True, verbose_name='Изображение')
-    name = models.CharField(max_length=150, verbose_name='Название')
-    full_description = models.TextField(blank=True, null=True, verbose_name='Описание')

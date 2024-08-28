@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 
-from mushroom_db.models import Types
 from mushroom_db.models import Mushrooms
-from mushroom_articles.models import Articles, Article_types
+from mushroom_articles.models import Articles, Sliders
 # Create your views here.
 
 
@@ -11,6 +10,7 @@ def index(request):
     article_types = Articles.objects.filter(type__url = 'stati-o-gribah')
     mushrooms = Mushrooms.objects.all()
     cook_articles = Articles.objects.filter(type__url = 'recepty-s-gribami')
+    sliders = Sliders.objects.all()
     cook = cook_articles
     count_of_meals = 0
     counter = 0
@@ -29,6 +29,7 @@ def index(request):
         "counter_for_articles": counter_for_articles,
         "article_types": article_types,
         "meals": count_of_meals,
+        "sliders": sliders,
     }
 
     return render(request, 'main/index.html', context=context)

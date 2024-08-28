@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from mushroom_articles.models import Article_types, Authors, Articles
+from mushroom_articles.models import Article_types, Authors, Articles, Sliders
 
 # Register your models here.
 
@@ -16,3 +16,5 @@ class ArticleURL(admin.ModelAdmin):
 @admin.register(Article_types)
 class TypeURL(admin.ModelAdmin):
     prepopulated_fields = {'url': ('type',)}
+
+admin.site.register(Sliders)

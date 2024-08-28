@@ -44,3 +44,17 @@ class Articles(models.Model):
         db_table = 'articles'
         verbose_name: str = 'Статью'
         verbose_name_plural: str = 'Статьи'
+
+class Sliders(models.Model):
+    name = models.CharField(max_length=120, null=False, verbose_name='Имя картинки для слайдера')
+    image = models.ImageField(upload_to='slider_images/', blank=True, null=True, verbose_name='Изображение для слайдера')
+    type = models.ForeignKey('Article_types', on_delete=models.CASCADE, verbose_name='Тип статьи, для которой сделана картинка')
+    url = models.SlugField(max_length=120, unique=True, blank=True, null=True, verbose_name='URL')
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        db_table = 'slider_images'
+        verbose_name: str = 'Картинку'
+        verbose_name_plural: str = 'Картинки'

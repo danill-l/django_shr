@@ -142,9 +142,10 @@
             <aside class="aside">
                 <div class="slider-container">
                     <div class="slider">
-                        <img src="{% static "img/mush_slider_two.png" %}" alt="Грибные рецепты">
-                        <img src="{% static "img/mush_slider_one.png" %}" alt="Статьи о грибах">
-                        <img src="{% static "img/mush_slider_three.png" %}" alt="Грибная медицина">
+                        {% tag_slider_images as sliders %}
+                        {% for slider in sliders %}
+                                <a href="{% url 'mushroom_articles:article' slider.url %}"><img src="{{ slider.image.url }}" alt="{{ slider.name }}"></a>
+                        {% endfor %}
                     </div>
                     <button class="prev-button" aria-label="Посмотреть предыдущий слайд">&lt;</button>
                     <button class="next-button" aria-label="Посмотреть следующий слайд">&gt</button>
