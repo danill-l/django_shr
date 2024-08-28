@@ -9,7 +9,7 @@
 
 <br>
 {% block description %}
-<article class="intro">
+<article class="inner-content-type">
     {% if type == 'edible' %}
     <h1>Съедобные грибы</h1>
     <p>Съедобными грибами обычно называют грибы, которые можно употреблять 
@@ -39,18 +39,26 @@
     {% endif %}
     {% for mushroom in mushrooms %}
     <section class="mushroom-card">
-        <a class="image">
+        <a class="image" href="{% url "mushroom_db:mushroom" mushroom.url %}">
             {% if mushroom.image %}
                 <img src="{{ mushroom.image.url }}" alt="{{ mushroom.name }}">
             {% else %}
                 <img src="{% static "img/not_found.png" %}" alt="{{ mushroom.name }}">
             {% endif %}
-            {% comment %} <div class="mushroom-icons">
+            <div class="mushroom-icons">
+            {% if mushroom.type.name == "Несъедобные" %}
                 <div class="not-edible">
                 </div>
+            {% endif %}
+            {% if mushroom.type.name == "Ядовитые" %}
                 <div class="poisonous">
                 </div>
-            </div> {% endcomment %}
+            {% endif %}
+            {% if mushroom.type.name == "Съедобные" %}
+                <div class="edible-grib">
+                </div>
+            {% endif %}
+            </div>
         </a>
         <div class="card-info">
             <hgroup>
@@ -59,12 +67,9 @@
                         {{ mushroom.name }} 
                     </a>
                 </h3>
-                <h4> Тип: {{ mushroom.type }}</h4>
-                <div>
-                    <h4>
-                        {{ mushroom.latin }}
-                    </h4>
-                </div>
+                <h4>
+                    ({{ mushroom.latin }})
+                </h4>
                 <div>
                     <p>
                         Синонимы: {{ mushroom.syn }}

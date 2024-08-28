@@ -37,14 +37,6 @@
                         <input type="text" class="searchinput" name="q" value placeholder="Название гриба">
                         <button class="submitter" type="submit"></button>
                     </form>
-                    {% comment %} <div class="authorisation">
-                        <a href="" class="sign-in">
-                            Войти
-                        </a>
-                        <a href="" class="register">
-                            Регистрация
-                        </a>
-                    </div> {% endcomment %}
                 </div>
             </div>
         </header>
@@ -67,13 +59,6 @@
                     <a href="{% url 'mushroom_articles:article' article_type.url %}">{{ article_type.type }}</a>
                 </li>
                 {% endfor %}
-                {% comment %} {% url 'mushroom_articles:article' article_type.url %} {% endcomment %}
-                {% comment %} <li href="" class="main-menu-link">
-                    <a href="">Статьи о грибах</a>
-                </li>
-                <li href="" class="main-menu-link">
-                    <a href="">Грибная медицина</a>
-                </li> {% endcomment %}
             </ul>
         </nav>
         <div class="content">
@@ -157,8 +142,8 @@
             <aside class="aside">
                 <div class="slider-container">
                     <div class="slider">
-                        <img src="{% static "img/mush_slider_one.png" %}" alt="Статьи о грибах">
                         <img src="{% static "img/mush_slider_two.png" %}" alt="Грибные рецепты">
+                        <img src="{% static "img/mush_slider_one.png" %}" alt="Статьи о грибах">
                         <img src="{% static "img/mush_slider_three.png" %}" alt="Грибная медицина">
                     </div>
                     <button class="prev-button" aria-label="Посмотреть предыдущий слайд">&lt;</button>

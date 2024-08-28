@@ -28,6 +28,7 @@ class Mushrooms(models.Model):
     description = models.TextField(blank=True, null=True, verbose_name='Описание')
     extras = models.CharField(max_length=150, blank=True, null=True, verbose_name='Примечания')
     url = models.SlugField(max_length=200, unique=True, blank=True, null=True, verbose_name='URL')
+    full_description = models.TextField(blank=True, null=True, verbose_name='Полное описание')
     type = models.ForeignKey('Types', on_delete=models.CASCADE, verbose_name='Тип')
 
     def __str__(self):
@@ -40,3 +41,8 @@ class Mushrooms(models.Model):
 
     def display_id(self):
         return self.id
+
+class MushroomsDesc(models.Model):
+    image = models.ImageField(upload_to='images/', blank=True, null=True, verbose_name='Изображение')
+    name = models.CharField(max_length=150, verbose_name='Название')
+    full_description = models.TextField(blank=True, null=True, verbose_name='Описание')

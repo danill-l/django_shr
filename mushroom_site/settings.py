@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'debug_toolbar',
 
     'mushroom_main.apps.MushroomMainConfig',
-    'mushroom_list.apps.MushroomListConfig',
     'mushroom_db.apps.MushroomDbConfig',
     'mushroom_articles.apps.MushroomArticlesConfig',
 ]

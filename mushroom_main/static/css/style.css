@@ -252,7 +252,7 @@ body {
     max-width: 715px;
 }
 .intro {
-    margin: 1.5em 2em 2em;
+    margin: 1.7em 2em 2em;
 }
 .intro-title {
     margin: 0;
@@ -460,7 +460,7 @@ overflow: hidden;
     left: 0.2em;
     top: 0.2em;
     position: absolute;
-    opacity: 0.7;
+    opacity: 0.9;
 }
 .poisonous, .not-edible {
     background-color: #ff5b4c;
@@ -470,6 +470,24 @@ overflow: hidden;
     cursor: pointer;
     margin-bottom: 2px;
 }
+.edible-grib {
+    background-color: #9ccf4e;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+.edible-grib::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 9px;
+    background: url("/static/img/sprites.png") 0 -686px;
+    width: 16px;
+    height: 16px;
+}
+
 .poisonous::before {
     content: '';
     position: absolute;
@@ -518,10 +536,37 @@ overflow: hidden;
     flex: 0 1 auto;
 }
 
+/* границы внутри блоков с текстом */
+.inner-content-article {
+    margin: 1em 2em 2em;
+}
+.inner-content-article p {
+    line-height: 1.3;
+    overflow-wrap: break-word;
+    display: block;
+}
+.inner-content-mushroom, .inner-content-type {
+    margin: 1.5em 2em 2em;
+}
+.inner-content-mushroom p {
+    line-height: 1.3;
+    overflow-wrap: break-word;
+    display: block;
+}
 /* стиль внутри карточек с грибами */
 
 .mushroom-card-img {
     display: flex;
     justify-content: center;
     height: 300px;
+}
+.mushroom-card-desc {
+    color: coral;
+    margin-top: 15px;
+}
+.mushroom-card-title {
+    text-align: center;
+    color: coral;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }

@@ -7,10 +7,12 @@
 {% endblock %}
 
 {% block description %}
-<article class="intro"> 
+<article class="inner-content-mushroom">
+    <h2 class="mushroom-card-title">{{mushroom.name}} ({{mushroom.latin}})</h2>
     <div class="mushroom-card-img">
-        <img src="{{ mushroom.image.url }}" alt="{{ mushroom.name }}" class="mushroom-card-picture"> 
+        <img src="{{ mushroom.image.url }}" alt="{{ mushroom.name }}" class="mushroom-card-picture">
     </div>
-    <p>{{mushroom.description}}</p>
+    <h2 class="mushroom-card-desc">Описание:</h2>
+    <p>{{mushroom.full_description | safe}}</p>
 </article>
 {% endblock %}
