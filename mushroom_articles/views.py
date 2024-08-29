@@ -12,3 +12,11 @@ def article(request, article_type):
         "name_of_url": name_of_url,
     }
     return render(request, 'article.html', context=context)
+
+def article_full(request, article_url):
+    individual_article = Articles.objects.get(url=article_url)
+
+    context = {
+        "individual_article": individual_article,
+    }
+    return render(request, 'article_full.html', context=context)

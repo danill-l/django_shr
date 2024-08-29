@@ -54,7 +54,11 @@
         <a class="article-image"> <img src="{{ article.article_image.url }}" alt="{{article.title}}"> </a>
         {% endif %}
         <div class="article-aside">
-            <hgroup><h3>{{ article.title }}</h3></hgroup>
+            <hgroup>
+                <a href="{% url "mushroom_articles:article_full" article.url %}" class='mushroom-link'> 
+                    <h3>{{ article.title }}</h3>
+                </a>
+            </hgroup>
             <div class="article-desk">
                 <p>{{ article.description }}</p>
             </div>

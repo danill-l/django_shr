@@ -1,0 +1,13 @@
+{% extends "main\index.html" %}
+
+{% load static %}
+
+{% block localstyle %}
+     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+{% block description %}
+<article class="inner-content-article">
+    <h2 class="mushroom-card-title">{{individual_article.title}}</h2>
+    <p>{{individual_article.full_description | safe}}</p>
+</article>
+{% endblock %}

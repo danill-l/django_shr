@@ -9,4 +9,5 @@ app_name = 'mushroom_articles'
 
 urlpatterns = [
     path('<slug:article_type>', views.article, name='article'),
+    path('article/<slug:article_url>', views.article_full, name='article_full'),
 ]

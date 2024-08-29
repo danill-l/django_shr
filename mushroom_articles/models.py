@@ -36,6 +36,7 @@ class Articles(models.Model):
     url = models.SlugField(max_length=120, unique=True, blank=True, null=True, verbose_name='URL')
     author = models.ForeignKey('Authors', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Автор у этой статьи')
     type = models.ForeignKey('Article_types', on_delete=models.CASCADE, verbose_name='Тип статьи')
+    full_description = models.TextField(blank=True, null=True, verbose_name='Полное описание статьи')
 
     def __str__(self):
         return self.title
