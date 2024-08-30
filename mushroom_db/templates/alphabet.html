@@ -1,0 +1,72 @@
+{% extends "main\index.html" %}
+
+{% load static %}
+
+{% block localstyle %}
+     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block description %}
+<article class="inner-content-type">
+    <h1>
+        Грибы на букву "{{first_letter}}":
+    </h1>
+    {% if not mushrooms %}
+        <h5>
+            К сожалению, по данному запросу ничего не найдено.
+        </h5>
+        <img src="{% static "img/404mushroom.png" %}" alt="Гриб не найден" class="grib404">
+    {% endif %}
+    <br/>
+    {% for mushroom in mushrooms %}
+    <section class="mushroom-card">
+        <a class="image" href="{% url "mushroom_db:mushroom" mushroom.url %}">
+            {% if mushroom.image %}
+                <img src="{{ mushroom.image.url }}" alt="{{ mushroom.name }}">
+            {% else %}
+                <img src="{% static "img/not_found.png" %}" alt="{{ mushroom.name }}">
+            {% endif %}
+            <div class="mushroom-icons">
+            {% if mushroom.type.name == "Несъедобные" %}
+                <div class="not-edible">
+                </div>
+            {% endif %}
+            {% if mushroom.type.name == "Ядовитые" %}
+                <div class="poisonous">
+                </div>
+            {% endif %}
+            {% if mushroom.type.name == "Съедобные" %}
+                <div class="edible-grib">
+                </div>
+            {% endif %}
+            </div>
+        </a>
+        <div class="card-info">
+            <hgroup>
+                <h3>
+                    <a href="{% url "mushroom_db:mushroom" mushroom.url %}" class='mushroom-link'> 
+                        {{ mushroom.name }} 
+                    </a>
+                </h3>
+                <h4>
+                    ({{ mushroom.latin }})
+                </h4>
+                <div>
+                    <p>
+                        Синонимы: {{ mushroom.syn }}
+                    </p>
+                </div>
+            </hgroup>
+            <div class="card-desc">
+                <p>
+                    {{ mushroom.description }}
+                </p>
+                <p>
+                    {{ mushroom.extras }}
+                </p>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+</article>
+{% endblock %}

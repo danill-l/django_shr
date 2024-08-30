@@ -41,3 +41,15 @@ class Mushrooms(models.Model):
 
     def display_id(self):
         return self.id
+
+class Alphabet(models.Model):
+    letter = models.CharField(max_length=2, null=False, verbose_name='Заглавная буква')
+    url = models.SlugField(max_length=120, unique=True, blank=True, null=True, verbose_name='URL')
+    
+    def __str__(self):
+        return self.letter
+    
+    class Meta:
+        db_table = 'alphabet'
+        verbose_name: str = 'Алфавит'
+        verbose_name_plural: str = 'Алфавиты'

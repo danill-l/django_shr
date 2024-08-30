@@ -151,6 +151,19 @@
                     <button class="next-button" aria-label="Посмотреть следующий слайд">&gt</button>
                 <script src="{% static "js/carousel.js" %}"></script>
                 </div>
+                <div class="alphabet">
+                    <h2 class="alphabet-title">
+                        Алфавитный каталог грибов
+                    </h2>
+                    <nav class="alph-wrapper">
+                        {% tag_alphabet_letters as letters%}
+                        {% for letter in letters %}
+                            <a class="alph-item" href="{% url 'mushroom_db:alphabet' first_letter=letter %}">
+                                <span class="letter">{{letter.letter}}</span>
+                            </a>
+                        {% endfor %}
+                    </nav>
+                </div>
             </aside>
         </div>
         <footer class="footer">

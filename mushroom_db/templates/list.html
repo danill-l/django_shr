@@ -7,7 +7,6 @@
 {% endblock %}
 
 
-<br>
 {% block description %}
 <article class="inner-content-type">
     {% if type == 'edible' %}
@@ -32,6 +31,7 @@
     {% elif searched %}
         {% if not mushrooms %}
             <h1>Извините, но по вашему запросу ничего не найдено!</h1>
+            <img src="{% static "img/mushroom_search.png" %}" alt="Гриб не найден" class="grib404_search">
         {% else %}
             <h1>Результаты вашего поиска: </h1>
         {% endif %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from mushroom_db.models import Types, Mushrooms
+from mushroom_db.models import Types, Mushrooms, Alphabet
 from mushroom_db.utils import q_search
 # Create your views here.
 
@@ -40,3 +40,13 @@ def mushroom(request, mushroom_url):
     }
 
     return render(request, 'mushroom.html', context=context)
+
+def alphabet(request, first_letter):
+    mushrooms = Mushrooms.objects.filter(name__startswith=first_letter)
+
+    context = {
+        "mushrooms": mushrooms,
+        "first_letter": first_letter,
+    }
+
+    return render(request, 'alphabet.html', context=context)

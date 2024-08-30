@@ -11,4 +11,5 @@ urlpatterns = [
     path('search/', views.list, name='search'),
     path('types/<slug:mushroom_type>', views.types, name='types'),
     path('mushroom/<slug:mushroom_url>', views.mushroom, name='mushroom'),
+    path('alphsearch/<str:first_letter>', views.alphabet, name='alphabet'),
 ]

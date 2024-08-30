@@ -372,19 +372,6 @@ p {
 }
 
 /* карусель */
-/* .carousel {
-    border: 1px solid black;
-    width: 350px;
-    margin: 0 auto;
-}
-.carousel-item {
-    border: 1px solid black;
-    background-image: url("/static/img/myshroom_logo_.png");
-    height: 200px;
-}
-.carousel-control-prev, .carousel-control-next {
-    color: black;
-} */
 
 .page-title {
     text-align: center;
@@ -393,7 +380,7 @@ p {
 .slider-container {
 position: relative;
 width: 380px;
-height: 400px;
+height: 280px;
 margin: 0 auto;
 padding-top: 10px;
 overflow: hidden;
@@ -413,7 +400,7 @@ overflow: hidden;
 .prev-button,
 .next-button {
     position: absolute;
-    top: 30%;
+    top: 50%;
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
@@ -433,6 +420,13 @@ overflow: hidden;
 }
 
 /* верстка раздела list */
+
+.grib404_search {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height: auto;
+}
 
 .image {
     display: inline-block;
@@ -569,4 +563,67 @@ overflow: hidden;
     color: coral;
     margin-top: 30px;
     margin-bottom: 20px;
+}
+
+/* алфавит */
+
+.alphabet {
+    text-align: center;
+    position: relative;
+    padding-bottom: 30px;
+    padding-top: 5px;
+    margin-bottom: 30px;
+    background-color: #693a26;
+    border-radius: 11px;
+}
+.alphabet-title {
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 10px;
+    /* padding: 1em 0; */
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    /* line-height: 1; */
+}
+.alph-wrapper{
+    display: block;
+}
+.alph-item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0 0.3em 1em 0.3em; */
+    width: 60px;
+    height: 51px;
+    color: white;
+    border-radius: 11px;
+    line-height: 1;
+    text-decoration: none;
+}
+.alph-item:hover{
+    cursor: pointer;
+    color: #F9EDE4;
+    background-color: #402114;
+}
+.letter {
+    /* margin-right: 0.2em; */
+    font-size: 36px;
+    font-weight: 700;
+}
+
+/* алфавит */
+.grib404 {
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+/* about */
+
+.gnome {
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+    height: auto;
 }
