@@ -329,6 +329,14 @@ p {
 .h-article {
     margin: 0 2em 2em;
 }
+.mushroom-float {
+    float: left;
+    margin: 0 0;
+}
+.mushroom-float-two {
+    float: right;
+    margin: 0 0;
+}
 .footer {
     background-color: #693a26;
     height: 92px;
