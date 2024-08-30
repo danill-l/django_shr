@@ -10,8 +10,6 @@ body {
     font-weight: 400;
     background: url("/static/img/mushroom_bg.png");
     background-size: contain;
-    /* background: url("/static/img/mushroom_bg.jpg") 50% 0 no-repeat; */
-    /* 50% 0; */
     line-height: 1;
 }
 .outer-page {
@@ -588,11 +586,9 @@ overflow: hidden;
     text-align: left;
     margin-left: 20px;
     margin-top: 10px;
-    /* padding: 1em 0; */
     color: white;
     font-size: 20px;
     font-weight: 700;
-    /* line-height: 1; */
 }
 .alph-wrapper{
     display: block;
@@ -601,7 +597,6 @@ overflow: hidden;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    /* margin: 0 0.3em 1em 0.3em; */
     width: 60px;
     height: 51px;
     color: white;
@@ -615,7 +610,6 @@ overflow: hidden;
     background-color: #402114;
 }
 .letter {
-    /* margin-right: 0.2em; */
     font-size: 36px;
     font-weight: 700;
 }

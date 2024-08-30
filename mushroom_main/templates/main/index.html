@@ -56,7 +56,7 @@
                 </li>
                 {% tag_article_type as article_types %}
                 {% for article_type in article_types  %}
-                <li href="" class="main-menu-link">
+                <li class="main-menu-link">
                     <a href="{% url 'mushroom_articles:article' article_type.url %}">{{ article_type.type }}</a>
                 </li>
                 {% endfor %}
